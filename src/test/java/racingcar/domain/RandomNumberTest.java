@@ -27,4 +27,5 @@ class RandomNumberTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("The random number must be between 0 and 9");
     }
+
 }

@@ -25,10 +25,11 @@ public class Car {
     private MovingStrategy movingStrategy;
 
     public Car(String name) {
-        this(name, DEFAULT_POSITION, RandomMovingStrategy.getInstance());
+        //this(name, DEFAULT_POSITION, RandomMovingStrategy.getInstance());
+        this(name, DEFAULT_POSITION, new RandomMovingStrategy());
 }
 
-    Car(String name, int position, MovingStrategy movingStrategy) {
+    public Car(String name, int position, MovingStrategy movingStrategy) {
         this.name = name;
         this.position = position;
         this.movingStrategy = movingStrategy;

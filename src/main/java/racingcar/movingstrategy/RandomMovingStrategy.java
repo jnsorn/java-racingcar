@@ -3,6 +3,8 @@ package racingcar.movingstrategy;
 import racingcar.domain.RandomNumber;
 import racingcar.generator.RandomNumberGenerator;
 
+import java.util.Random;
+
 /*
  * Copyright (c) 2020 by 또링
  * All rights reserved.
@@ -18,18 +20,18 @@ import racingcar.generator.RandomNumberGenerator;
 public class RandomMovingStrategy implements MovingStrategy {
     private static final int MINIMUM_NUMBER_TO_GO = 4;
 
-    private static RandomMovingStrategy randomMovingStrategy = new RandomMovingStrategy();
+    private RandomNumber randomNumber;
 
-    private RandomMovingStrategy() {
+    public RandomMovingStrategy() {
+        randomNumber = new RandomNumber(RandomNumberGenerator.getRandomNumber());
     }
 
-    public static RandomMovingStrategy getInstance() {
-        return randomMovingStrategy;
+    public RandomMovingStrategy(RandomNumber randomNumber) {
+        this.randomNumber = randomNumber;
     }
 
     @Override
     public boolean isMovable() {
-        RandomNumber randomNumber = new RandomNumber(RandomNumberGenerator.getRandomNumber());
         return randomNumber.getNumber() >= MINIMUM_NUMBER_TO_GO;
     }
 }
